@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartas Interactivas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #333;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            cursor: pointer;
+            margin-top: 30px;
+        }
+        #message-container {
+            display: none;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #ffefe1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 500px;
+            text-align: left;
+        }
+        #message-container p {
+            margin: 0 0 10px;
+            color: #555;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Haz clic en el oso para recibir una carta especial 🐻</h1>
+    <img id="bear-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Brown_bear_%28Ursus_arctos%29_running.jpg/800px-Brown_bear_%28Ursus_arctos%29_running.jpg" alt="Oso">
+    <div id="message-container">
+        <p id="carta-texto"></p>
+    </div>
+
+    <script>
+        const bearImage = document.getElementById('bear-image');
+        const messageContainer = document.getElementById('message-container');
+        const cartaTexto = document.getElementById('carta-texto');
+        let messageVisible = false;
+
+        const cartas = [
+            "Eres la persona más preciosa que he conocido, tu belleza física es increíble y siempre me deja sin palabras. 💖",
+            "Tu sonrisa ilumina cualquier lugar al que llegues, es como un rayo de sol en un día nublado. 🌞",
+            "Tienes una personalidad tan radiante que haces que cualquiera quiera estar cerca de ti. 🌟",
+            "Tu fuerza y determinación me inspiran todos los días. No importa los obstáculos, siempre encuentras una forma de superarlos. 💪",
+            "Eres la definición de resiliencia. Cada vez que caes, te levantas con más ganas, y eso me asombra. ✨",
+            "Tu forma de escuchar y cuidar de los demás muestra lo bondadosa que eres. Eres un regalo para este mundo. 🎁",
+            "Tus ojos reflejan toda la belleza de tu alma. Son mi lugar favorito para perderme. 👀❤️",
+            "Siempre sabes cómo hacerme reír, incluso en los momentos más difíciles. Tu sentido del humor es único. 😂",
+            "Admiro cómo siempre buscas aprender y crecer. Tienes una curiosidad que te hace brillar. 📚",
+            "Eres tan valiente, enfrentando tus miedos y mostrando una fuerza que pocos tienen. 🦁",
+            "Tienes un corazón tan generoso que siempre estás pensando en cómo ayudar a los demás. 💕",
+            "Tu forma de ver el mundo, con esperanza y amor, es algo que me inspira profundamente. 🌍❤️",
+            "Amo cómo te preocupas por los pequeños detalles; eso demuestra lo mucho que te importan las personas a tu alrededor. 🌸",
+            "Eres mi refugio en días de tormenta, la calma que necesito. Gracias por ser tú. 🌧️💖",
+            "Tienes una luz única que no puede ser apagada. Es imposible no sentirme atraído/a hacia ti. ✨",
+            "Admiro tu honestidad y la forma en que siempre eres fiel a ti misma. Eso es algo muy valioso. 🔥",
+            "Eres tan creativa y talentosa. Todo lo que haces tiene tu toque mágico. 🎨✨",
+            "Tu voz es como una melodía que siempre quiero escuchar. Es mi sonido favorito. 🎵",
+            "Eres mi lugar feliz, mi hogar. Contigo todo parece posible. 🏡❤️",
+            "Eres una persona increíblemente especial, y cada día a tu lado es un regalo que nunca doy por sentado. 🎁✨"
+        ];
+
+        bearImage.addEventListener('click', () => {
+            if (!messageVisible) {
+                // Mostrar la carta con un texto aleatorio
+                const cartaIndex = Math.floor(Math.random() * cartas.length);
+                cartaTexto.textContent = cartas[cartaIndex];
+                messageContainer.style.display = 'block';
+                messageVisible = true;
+            } else {
+                // Ocultar la carta
+                messageContainer.style.display = 'none';
+                messageVisible = false;
+            }
+        });
+    </script>
+</body>
+</html>
